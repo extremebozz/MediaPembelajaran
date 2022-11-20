@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.extremebozz.skripsi.dataaccess.LoginAccess;
+
 public class LoginActivity extends AppCompatActivity {
 
     //Set variable Session (nanti buat activity splash + dipindahin ke sana)
@@ -20,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String USERNAME = "usernameKey";
 
     DataHelper dHelper;
+    LoginAccess loginAccess;
     SharedPreferences sharedPreferences;
 
     String spUsername;
@@ -33,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        dHelper = new DataHelper(getApplicationContext());
+        loginAccess = new LoginAccess(getApplicationContext());
 
         username = findViewById(R.id.tbUsernameLogin);
         password = findViewById(R.id.tbPasswordLogin);
@@ -56,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 //Membuka Editor Session
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                boolean loginSuccess = dHelper.readUser(username.getText().toString(), password.getText().toString(), editor);
+                boolean loginSuccess = loginAccess.readUser(username.getText().toString(), password.getText().toString(), editor);
 
                 if(loginSuccess){
                     //Mulai Intent
