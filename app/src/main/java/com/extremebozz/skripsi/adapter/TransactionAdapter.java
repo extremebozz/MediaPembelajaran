@@ -69,18 +69,17 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             super(itemView);
 
             // Initialize the views.
-            lId = itemView.findViewById(R.id.tId);
-            lNama = itemView.findViewById(R.id.tNama);
-            lDeskripsi = itemView.findViewById(R.id.tDeskripsi);
+            lNama = itemView.findViewById(R.id.tvNama);
+            lDeskripsi = itemView.findViewById(R.id.tvDeskripsi);
             //iIcon = itemView.findViewById(R.id.iIcon);
 
             itemView.setOnClickListener(this);
         }
 
-        void bindTo(Jamur currenJamur){
+        void bindTo(Jamur currentJamur){
             // Populate the textviews with data.
-            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
-            DecimalFormat dFormatter = new DecimalFormat("#,##0");
+            lNama.setText(currentJamur.getNama());
+            lDeskripsi.setText(currentJamur.getDeskripsi());
         }
     }
 }

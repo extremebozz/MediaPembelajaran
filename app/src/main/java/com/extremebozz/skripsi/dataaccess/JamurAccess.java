@@ -25,6 +25,8 @@ public class JamurAccess extends DataHelper {
         jamurCursor = db.rawQuery("SELECT * FROM data_jamur WHERE aktif = 'Y';", null);
 
         if(jamurCursor.getCount() > 0){
+            jamurCursor.moveToFirst();
+
             do {
                 lJamur.add(new Jamur(jamurCursor.getInt(0), jamurCursor.getString(1), jamurCursor.getString(2)));
             }while (jamurCursor.moveToNext());

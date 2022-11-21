@@ -28,7 +28,8 @@ public class DataHelper extends SQLiteOpenHelper{
                 "aktif TEXT NOT NULL DEFAULT 'Y', PRIMARY KEY(id));";
         db.execSQL(sql);
 
-        sql = "INSERT INTO data_jamur (id, nama, deskripsi, aktif) VALUES ('1', 'Jamur Tiram', 'Test', 'Y');";
+        sql = "INSERT INTO data_jamur (id, nama, deskripsi, aktif) VALUES ('1', 'Jamur Tiram', 'Test Tiram', 'Y')," +
+                " ('2', 'Jamur Telinga', 'Test Telinga', 'Y'), ('3', 'Jamur Hitem', 'Test Hitem', 'Y');";
         db.execSQL(sql);
     }
 
