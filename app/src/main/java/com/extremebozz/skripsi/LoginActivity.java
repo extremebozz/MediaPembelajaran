@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
     public static final String USER_ID = "useridKey";
     public static final String USERNAME = "usernameKey";
 
-    DataHelper dHelper;
     LoginAccess loginAccess;
     SharedPreferences sharedPreferences;
 
@@ -36,6 +35,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+        spUserID = sharedPreferences.getInt(USER_ID, 0);
+        spUsername = sharedPreferences.getString(USERNAME, null);
+
+        if(spUserID != 0 && spUsername != null){
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         loginAccess = new LoginAccess(getApplicationContext());
 
         username = findViewById(R.id.tbUsernameLogin);
@@ -45,17 +55,6 @@ public class LoginActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-
-                spUserID = sharedPreferences.getInt(USER_ID, 0);
-                spUsername = sharedPreferences.getString(USERNAME, null);
-
-                if(spUserID != 0 && username != null){
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-
                 //Membuka Editor Session
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 

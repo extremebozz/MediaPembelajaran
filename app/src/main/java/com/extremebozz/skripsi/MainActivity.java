@@ -5,10 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import com.extremebozz.skripsi.adapter.JamurAdapter;
-import com.extremebozz.skripsi.adapter.TransactionAdapter;
 import com.extremebozz.skripsi.dataaccess.JamurAccess;
 import com.extremebozz.skripsi.models.Jamur;
 
@@ -19,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
     DataHelper dHelper;
 
     private RecyclerView mRecyclerview;
-    private ArrayList<Jamur> mTransactionData;
-    private TransactionAdapter mAdapter;
+    private ArrayList<Jamur> mJamurData;
+    private JamurAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerview = findViewById(R.id.rvListJamur);
         mRecyclerview.setLayoutManager(new LinearLayoutManager(this));
 
-        mTransactionData = new ArrayList<>();
+        mJamurData = new ArrayList<>();
 
-        mAdapter = new TransactionAdapter(this, mTransactionData);
+        mAdapter = new JamurAdapter(this, mJamurData);
         mRecyclerview.setAdapter(mAdapter);
 
         initializeData();
@@ -44,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Jamur> lJamur = jamurAccess.readJamur();
 
         if(lJamur.size() > 0){
-            mTransactionData.clear();
+            mJamurData.clear();
 
             for(int i=0;i<lJamur.size();i++){
                 Jamur jamur = lJamur.get(i);
-                mTransactionData.add(new Jamur(jamur.getID(), jamur.getNama(), jamur.getDeskripsi()));
+                mJamurData.add(new Jamur(jamur.getID(), jamur.getNama(), jamur.getDeskripsi(), jamur.getDeskripsiSingkat()));
             }
 
             mAdapter.notifyDataSetChanged();

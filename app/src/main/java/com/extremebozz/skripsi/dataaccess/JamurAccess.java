@@ -28,7 +28,7 @@ public class JamurAccess extends DataHelper {
             jamurCursor.moveToFirst();
 
             do {
-                lJamur.add(new Jamur(jamurCursor.getInt(0), jamurCursor.getString(1), jamurCursor.getString(2)));
+                lJamur.add(new Jamur(jamurCursor.getInt(0), jamurCursor.getString(1), jamurCursor.getString(2), jamurCursor.getString(3)));
             }while (jamurCursor.moveToNext());
         }
 
