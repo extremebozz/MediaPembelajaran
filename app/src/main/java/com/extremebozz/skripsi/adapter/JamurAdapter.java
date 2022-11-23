@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -56,9 +57,9 @@ public class JamurAdapter extends RecyclerView.Adapter<JamurAdapter.ViewHolder> 
             mContext.startActivity(detailIntent);
         }
 
-        private TextView lId;
         private TextView lNama;
         private TextView lDeskripsi;
+        private ImageView ivJamur;
 
         ViewHolder(View itemView){
             super(itemView);
@@ -66,7 +67,7 @@ public class JamurAdapter extends RecyclerView.Adapter<JamurAdapter.ViewHolder> 
             // Mencari views
             lNama = itemView.findViewById(R.id.tvNama);
             lDeskripsi = itemView.findViewById(R.id.tvDeskripsi);
-            //ivIcon = itemView.findViewById(R.id.iIcon);
+            ivJamur = itemView.findViewById(R.id.ivJamur);
 
             itemView.setOnClickListener(this);
         }
@@ -75,6 +76,7 @@ public class JamurAdapter extends RecyclerView.Adapter<JamurAdapter.ViewHolder> 
             // Isi textview dengan data
             lNama.setText(currentJamur.getNama());
             lDeskripsi.setText(currentJamur.getDeskripsiSingkat());
+            Jamur.getGambar(ivJamur, currentJamur.getNama());
         }
     }
 }
