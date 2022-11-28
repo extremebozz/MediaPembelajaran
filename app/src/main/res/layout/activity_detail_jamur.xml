@@ -1,77 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailJamur">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="?actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            android:paddingStart="10dp"
+            android:background="@color/teal_700">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/linearLayout"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/ivJamur"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:padding="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintDimensionRatio="H,1:1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/jamur_tiram"
-                    tools:layout_constraintDimensionRatio="H,1:1" />
+                <TextView
+                    android:id="@+id/tNama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:text="@string/placeholder_title"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
 
-        </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="5dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tNama"
+            <ImageView
+                android:id="@+id/ivJamur"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginVertical="5dp"
-                android:text="@string/placeholder_title"
-                android:textAllCaps="false"
-                android:textColor="#000000"
-                android:textSize="32sp"
-                tools:layout_editor_absoluteX="175dp"
-                tools:layout_editor_absoluteY="59dp" />
+                android:layout_height="250dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/jamur_kuping_16_9"/>
 
-            <TextView
-                android:id="@+id/tDeskripsi"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:justificationMode="inter_word"
-                android:lineSpacingExtra="8sp"
-                android:text="@string/placeholder_deskripsi"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="175dp"
-                tools:layout_editor_absoluteY="59dp" />
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="5dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1.0">
+
+                    <Button
+                        android:id="@+id/bListPenyakit"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="List Penyakit"
+                        android:layout_marginHorizontal="5dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tDeskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/placeholder_deskripsi"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    tools:layout_editor_absoluteX="175dp"
+                    tools:layout_editor_absoluteY="59dp" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -30,7 +30,7 @@ public class Jamur {
                 break;
 
             case "Jamur Kuping":
-                ivJamur.setImageResource(R.drawable.jamur_kuping);
+                ivJamur.setImageResource(R.drawable.jamur_kuping_16_9);
                 break;
 
             default:

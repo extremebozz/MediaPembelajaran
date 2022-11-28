@@ -1,10 +1,17 @@
 package com.extremebozz.skripsi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.extremebozz.skripsi.adapter.JamurAdapter;
 import com.extremebozz.skripsi.dataaccess.JamurAccess;
@@ -24,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setStatusBar();
 
         //Buat referensi Recycler View
         mRecyclerview = findViewById(R.id.rvListJamur);
@@ -50,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    private void setStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            getWindow().setDecorFitsSystemWindows(true);
         }
     }
 }

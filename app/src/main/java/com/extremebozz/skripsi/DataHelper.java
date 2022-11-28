@@ -39,14 +39,14 @@ public class DataHelper extends SQLiteOpenHelper{
                 "'Test HTML Tag', 'Y');";
         db.execSQL(sql);
 
-        sql = "CREATE TABLE data_penyakit (id INTEGER, id_jamur INTEGER NOT NULL, nama TEXT NOT NULL, deskripsi TEXT NOT NULL," +
+        sql = "CREATE TABLE data_penyakit (id INTEGER, id_jamur INTEGER NOT NULL, nama TEXT NOT NULL, deskripsi TEXT NOT NULL, penanganan TEXT NOT NULL, " +
                 "aktif INTEGER NOT NULL DEFAULT 'Y', FOREIGN KEY(id_jamur) REFERENCES data_jamur(id), PRIMARY KEY(id));";
         db.execSQL(sql);
 
-        sql = "INSERT INTO data_penyakit (id_jamur, nama, deskripsi) VALUES ('1', 'Ulat', 'Ulat merupakan hama yang paling banyak ditemui dalam budidaya jamur tiram. Ada tiga faktor penyebab kemunculan hama ini yaitu faktor kelembaban, kotoran dari sisa pangkal atau bonggol atau tangkai jamur dan jamur yang tidak terpanen, serta lingkungan yang tidak bersih." +
+        sql = "INSERT INTO data_penyakit (id_jamur, nama, deskripsi, penanganan) VALUES ('1', 'Ulat', 'Ulat merupakan hama yang paling banyak ditemui dalam budidaya jamur tiram. Ada tiga faktor penyebab kemunculan hama ini yaitu faktor kelembaban, kotoran dari sisa pangkal atau bonggol atau tangkai jamur dan jamur yang tidak terpanen, serta lingkungan yang tidak bersih." +
                 "Hama ulat muncul ketika kelembaban udara berlebihan. Oleh sebab itu, hama ulat sering dijumpai ketika musim hujan. Pencegahan hama ini adalah dengan mengatur sirkulasi udara. Caranya dengan membuka lubang sirkulasi serta menghentikan sementara proses penyiraman. Jamur yang tidak terpanen akan busuk dan menyebabkan munculnya ulat." +
                 "Sebaiknya, ketika melakukan pemanenan, baglog telah dipastikan kebersihannya sehingga tidak ada pangkal atau batang dan jamur yang tidak terpanen. Ulat bisa saja muncul karena rumah kumbung ataupun sekitar kumbung tidak berseih. Misalnya adanya kandang ternak atau tanaman di sekitar rumah kumbung. Untuk mencegah dan mengatasi serangan hama ulat," +
-                "lakukan pembersihan rumah kumbung dan sekitar rumah kumbung dengan melakukan penyemprotan formalin.')";
+                "lakukan pembersihan rumah kumbung dan sekitar rumah kumbung dengan melakukan penyemprotan formalin.', 'Test Pengobatan')";
         db.execSQL(sql);
     }
 
