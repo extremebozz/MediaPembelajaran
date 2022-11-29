@@ -32,14 +32,6 @@ public class DetailJamur extends AppCompatActivity {
 
         setStatusBar();
 
-        toolbar = findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
-        }
-
         TextView nama = findViewById(R.id.tNama);
         TextView deskripsi = findViewById(R.id.tDeskripsi);
         ImageView gambar = findViewById(R.id.ivJamur);
@@ -60,6 +52,8 @@ public class DetailJamur extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DetailJamur.this, ListPenyakit.class);
+                intent.putExtra("Nama", sNama);
+                intent.putExtra("IdTanaman", getIntent().getIntExtra("Id", 0));
                 startActivity(intent);
             }
         });
@@ -68,6 +62,14 @@ public class DetailJamur extends AppCompatActivity {
     private void setStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             getWindow().setDecorFitsSystemWindows(true);
+        }
+
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
     }
 

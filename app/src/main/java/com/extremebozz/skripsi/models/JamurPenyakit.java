@@ -16,7 +16,7 @@ public class JamurPenyakit {
     }
 
     public Integer getID() { return id; }
-    public Integer getIdTanama() { return idTanaman; }
+    public Integer getIdTanaman() { return idTanaman; }
     public String getNama() { return nama; }
     public String getDeskripsi() { return deskripsi; }
     public String getPenanganan() { return penanganan; }

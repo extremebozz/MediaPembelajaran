@@ -11,4 +11,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi arcu, semper a elit nec, rutrum gravida libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus rhoncus, ex vitae cursus gravida, velit eros imperdiet velit, eget dignissim purus turpis quis massa. Aliquam velit lorem, semper vel tempor eget, volutpat a velit. Vestibulum pellentesque lorem nisl, id ullamcorper ligula vulputate ut. In tincidunt urna a quam eleifend rutrum. Nulla ullamcorper magna lectus, quis rutrum enim tempor ac. Nunc lorem purus, semper eu cursus a, cursus ac nunc. Nullam in ante sed ex venenatis fringilla. Fusce vestibulum enim et risus vehicula vehicula. Cras ipsum lacus, faucibus at laoreet eget, gravida at massa. Vestibulum porta augue non augue vehicula volutpat. Proin semper lorem nisi, non mollis sapien vehicula quis. Ut dapibus mattis quam, sed tempus ipsum rutrum quis.</string>
 </resources>
